@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>AGI(Ask anything)</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">AGI(Ask anything)</p>
+          <h1>AGI(Ask anything)</h1>
+          <p class="subhead">
+            Ask anything.
+          </p>
+        </div>
+        <a class="button-link" href="/tools">Other Tools</a>
+      </header>
+
+      <section class="card">
+        <h2>Agent Prompt</h2>
+        <form id="agent-form">
+          <label>
+            Prompt
+            <textarea name="prompt" rows="4" required></textarea>
+          </label>
+          <button type="submit">Run Agent</button>
+        </form>
+        <div id="agent-log" class="log"></div>
+        <div id="agent-preview" class="preview"></div>
+        <pre id="agent-final" class="result"></pre>
+      </section>
+
+      <section class="card">
+        <h2>Gmail OAuth</h2>
+        <p class="subhead">
+          Connect your Gmail account to obtain a refresh token for
+          read-only access.
+        </p>
+        {% if gmail_connected %}
+        <div class="status-row">
+          <span class="status-dot active"></span>
+          <span>Gmail connected</span>
+        </div>
+        {% else %}
+        <a class="button-link" href="/oauth/gmail/start">Connect Gmail</a>
+        {% endif %}
+        {% if not gmail_client_id %}
+        <p class="subhead">
+          Set GMAIL_CLIENT_ID in .env to enable the OAuth flow.
+        </p>
+        {% endif %}
+      </section>
+
+    </main>
+    <script>
+      window.GMAPS_EMBED_API_KEY = "{{ gmaps_embed_api_key|e }}";
+    </script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

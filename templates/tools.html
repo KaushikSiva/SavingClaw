@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Media Tools - More</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Media Tools</p>
+          <h1>More Tools</h1>
+          <p class="subhead">
+            Image/video utilities and merge tools.
+          </p>
+        </div>
+        <a class="button-link" href="/">Back to Agent</a>
+      </header>
+
+      <section class="card">
+        <h2>Generate Image</h2>
+        <form id="image-form">
+          <label>
+            Description
+            <textarea name="description" rows="4" required></textarea>
+          </label>
+          <label>
+            Model (optional)
+            <input type="text" name="model" placeholder="models/..." />
+          </label>
+          <label>
+            Output path (optional)
+            <input type="text" name="out_path" placeholder="generated_image.png" />
+          </label>
+          <button type="submit">Create Image</button>
+        </form>
+        <pre id="image-result" class="result"></pre>
+      </section>
+
+      <section class="card">
+        <h2>Generate Video</h2>
+        <form id="video-form">
+          <label>
+            Description
+            <textarea name="description" rows="4" required></textarea>
+          </label>
+          <label>
+            Image URL
+            <input type="url" name="image_url" required />
+          </label>
+          <div class="row">
+            <label>
+              Duration (seconds)
+              <input type="number" name="duration_seconds" value="8" min="1" />
+            </label>
+            <label>
+              Timeout (seconds)
+              <input type="number" name="timeout" value="180" min="1" />
+            </label>
+          </div>
+          <label>
+            Output dir (optional)
+            <input type="text" name="output_dir" placeholder="generated" />
+          </label>
+          <label>
+            Model (optional)
+            <input type="text" name="model" placeholder="fal model" />
+          </label>
+          <label>
+            Title (optional)
+            <input type="text" name="title" />
+          </label>
+          <button type="submit">Create Video</button>
+        </form>
+        <pre id="video-result" class="result"></pre>
+      </section>
+
+      <section class="card">
+        <h2>Merge Videos (Insert Ad)</h2>
+        <form id="merge-form">
+          <label>
+            Main video (video1)
+            <input type="file" name="video1" accept="video/*" required />
+          </label>
+          <label>
+            Ad video (video2)
+            <input type="file" name="video2" accept="video/*" required />
+          </label>
+          <label>
+            Insert timestamp (seconds or HH:MM:SS)
+            <input type="text" name="timestamp" placeholder="12.5 or 00:01:30" required />
+          </label>
+          <button type="submit">Merge</button>
+        </form>
+        <div id="merge-preview" class="preview">
+          <div class="ad-wrapper">
+            <video id="merge-video" controls></video>
+            <div id="ad-badge" class="ad-badge">Ad</div>
+          </div>
+          <div class="ad-timeline">
+            <div id="ad-progress" class="ad-progress"></div>
+          </div>
+        </div>
+        <pre id="merge-result" class="result"></pre>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

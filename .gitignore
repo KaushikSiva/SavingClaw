@@ -1,0 +1,15 @@
+.DS_Store
+.env
+.env.*
+.gmail_tokens.json
+
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+venv/
+.venv/
+
+uploads/
+tts_output/

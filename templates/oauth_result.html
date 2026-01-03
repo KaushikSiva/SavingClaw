@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Gmail OAuth Result</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <h2>Gmail OAuth Result</h2>
+        <p class="subhead">
+          Copy the refresh token into your .env as GMAIL_REFRESH_TOKEN.
+        </p>
+        <div class="result">
+          <strong>Refresh Token</strong>
+          <pre class="result">{{ refresh_token }}</pre>
+        </div>
+        <div class="result">
+          <strong>Access Token</strong>
+          <pre class="result">{{ access_token }}</pre>
+        </div>
+        <p class="subhead">
+          You can close this tab after saving the refresh token.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
