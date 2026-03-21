@@ -118,6 +118,11 @@ def index():
     )
 
 
+@app.get("/landing")
+def landing():
+    return render_template("landing.html")
+
+
 @app.get("/tools")
 def tools_page():
     return render_template("tools.html")
